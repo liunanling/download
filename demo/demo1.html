@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>Document</title>
+  <style>
+    html, body {
+      width: 100%;
+      height: 100%;
+      padding: 0;
+      margin: 0;
+      min-height: 1000px;
+      font-size: 40px;
+    }
+
+    .wrapper {
+      width: 100%;
+      height: 100%;
+      background: red;
+      opacity: 0.5;
+      padding-top: 200px;
+    }
+
+    .input {
+      display: block;
+      width: 100%;
+      height: 50px;
+    }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+  <a href="javascript:;" id="openApp">打开</a>
+
+  <!--<a href="javascript:;" id="openApp1" >下载</a>-->
+</div>
+<script src="../dist/lib/jquery-1.11.2.min.js"></script>
+<script>
+
+  $(function () {
+    var urlInfo = {
+      //通用链接 & 应用宝->appstore
+      ulink_sjapp2appstore: 'https://new-dev-api.haochang.tv',   //需要跳转房间在自定参数
+      //通用链接 & appstore
+      ulink_appstore: 'https://new-dev-api.haochang.tv?market=appstore',//需要跳转房间在自定参数
+      //uri-scheme
+      uriScheme: 'cqhaochang://v4.haochang.com/',
+      //appstore
+      appstore: 'https://itunes.apple.com/cn/app/hao-chang-1miao-bian-ge-shen/id788432982?mt=8',
+      //应用宝
+      sjapp: 'http://a.app.qq.com/o/simple.jsp?pkgname=com.michong.haochang',
+      //安卓安装包地址
+      apk: 'http://www.haochang.tv/download'
+    };
+    var timeout = null;
+    $('#openApp').on('click', function () {
+      clearTimeout(timeout);
+      var iframe_view = openApp(urlInfo);
+      timeout = setTimeout(function () {
+        alert(4);
+        if (iframe_view) {
+          document.body.removeChild(iframe_view);
+        }
+        openDownload(urlInfo);
+      }, 2000)
+    });
+    /**
+     *ios：
+     *微信,微博：
+     *  ios9以上使用-通用链接(使用重定向到应用宝的通用链接)
+     *  ios9以下使用-保留“在浏览器中打开”提示
+     *QQ:
+     *  ios9以上使用-通用链接(使用重定向到appstore的通用链接)
+     *  ios9以下使用-保留“在浏览器中打开”提示
+     *
+     *safari：
+     *  ios9以上使用-通用链接(使用重定向到appstore的通用链接)
+     *  ios9以下使用:
+     *        iframe的形式打开urischeme
+     *        定时器打开appstore
+     *
+     *其他浏览器：
+     *      iframe的形式打开urischeme
+     *      定时器打开appstore
+     *
+     *android：
+     *  微信,qq,微博
+     *    保留“在浏览器中打开”提示
+     *
+     *浏览器：
+     *    iframe的形式打开urischeme
+     *    定时器直接下载安装包
+     *
+     */
+
+    //打开app
+    function openApp(urlInfo) {
+      if (undefined == urlInfo || null == urlInfo) {
+        console.log('参数错误！');
+        return;
+      }
+      var y = undefined
+      if ((checkAndroid() && !checkBrowser() && !checkQQ()) ||
+        (!checkAndroid() && !checkBrowser() && !checkUniversalLinks())) {
+        //安卓微信，微博，ios9以下非浏览器环境
+        alert('请在浏览器中打开！')
+      } else if ((checkBrowser() && checkAndroid()) ||
+        (checkBrowser() && !checkSafari()) ||
+        (checkBrowser() && checkSafari() && !checkUniversalLinks()) ||
+        (!checkBrowser() && checkAndroid() && checkQQ())) {
+        alert(1);
+        //安卓浏览器环境，qq，ios第三方浏览器，ios9以下的safari
+        y = document.createElement("iframe");
+        y.src = urlInfo.uriScheme; //uri-scheme
+        y.style.display = "none";
+        document.body.appendChild(y);
+      } else if (!checkAndroid() && checkUniversalLinks()) {
+
+        //ios9以上
+        if ((checkBrowser() && checkSafari()) || (!checkBrowser() && checkQQ())) {
+          alert(3);
+          //safari，qq
+          window.location.href = urlInfo.ulink_appstore;// 通用链接 appstore
+        } else if (!checkBrowser() && !checkQQ()) {
+          alert(2);
+          //微信，微博
+          window.location.href = urlInfo.ulink_sjapp2appstore;// 通用链接 应用宝->appstore
+        }
+      }
+      return y
+    }
+
+    //打开下载链接
+    /**
+     *downloadType:
+     *true : 下载按钮与打开按钮分开，下载按钮只提供下载功能
+     *false: 正常行为 默认
+     */
+    function openDownload(urlInfo, downloadType) {
+      if (undefined == urlInfo || null == urlInfo) {
+        console.log('参数错误！');
+        return;
+      }
+      if (!checkBrowser()) {
+        downloadType = downloadType || false
+        if (checkAndroid() && !checkBrowser() && checkQQ()) {
+          window.location.href = urlInfo.apk;//安卓安装包地址
+        }
+        //三方应用中
+        if (downloadType) {
+          if (checkAndroid()) {
+            window.location.href = urlInfo.apk;//安卓安装包地址
+          } else {
+            //qq中不需要通过应用宝跳appstore
+            if (checkQQ()) {
+              window.location.href = urlInfo.appstore;// appstore
+              return;
+            }
+            window.location.href = urlInfo.sjapp;// 应用宝->appstore
+          }
+        }
+      } else {
+        //浏览器中
+        if (checkAndroid()) {
+          window.location.href = urlInfo.apk;//安卓安装包地址
+        } else {
+          if (!checkSafari() || !checkUniversalLinks()) {
+            //其他浏览器，或者是ios9以下的safari
+            window.location.href = urlInfo.ulink_appstore;//appstore地址
+          }
+        }
+      }
+    }
+
+    //检查是否浏览器
+    function checkBrowser() {
+      return !checkWechart() && !checkQQ() && !checkWeibo()
+    }
+
+    //检查是否为安卓
+    function checkAndroid() {
+      var c = navigator.userAgent.toLowerCase();
+      return c.indexOf("android") > 0;
+    }
+
+    //检查是否ios9及以上
+    function checkUniversalLinks() {
+      var c = navigator.userAgent.toLowerCase(),
+        b = c.match(/OS [0-9]+_\d[_\d]* like Mac OS X/i);
+      return b && b.length > 0 && parseInt(b[0].split(" ")[1]) >= 9;
+    }
+
+    //检查是否微信
+    function checkWechart() {
+      var c = navigator.userAgent.toLowerCase();
+      return c.indexOf("micromessenger") > 0;
+    }
+
+    //检查是否qq
+    function checkQQ() {
+      var c = navigator.userAgent.toLowerCase();
+      return c.indexOf("qq/") > 0;
+    }
+
+    //检查是否微博
+    function checkWeibo() {
+      var c = navigator.userAgent.toLowerCase();
+      return c.indexOf("weibo") > 0;
+    }
+
+    //safari
+    function checkSafari() {
+      var c = navigator.userAgent.toLowerCase();
+      //排除几个主流浏览器 百度 360 uc qq chrome
+      return !/baidubrowser|qhbrowser|ucbrowser|mqqbrowser|crios/.test(c) && /safari/.test(c)
+    }
+  })
+</script>
+</body>
+</html>

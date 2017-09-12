@@ -1,0 +1,59 @@
+// 重置
+* {
+  margin: 0;
+  padding: 0;
+  border-width: 0;
+  list-style: none;
+  background-repeat: no-repeat;
+  font-family: "Microsoft yahei";
+}
+
+/*p, span, a {
+ font-family: "黑体"
+}*/
+
+body > div {
+  position: relative;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+}
+
+a img{
+  border:none;
+}
+.clearfix{zoom:1;}
+.clearfix:after {
+  content:"";
+  visibility:hidden;
+  display:block;
+  clear:both;
+  height:0;
+  font-size:0;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.fs28 {
+  font-size: 0.28rem;
+}
+
+.fs32 {
+  font-size: 0.32rem;
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
+}

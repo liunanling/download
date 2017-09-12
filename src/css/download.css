@@ -1,0 +1,416 @@
+* {
+  margin: 0;
+  padding: 0;
+  border-width: 0;
+  list-style: none;
+  background-repeat: no-repeat;
+  font-family: "Microsoft yahei";
+}
+
+img {
+  width: 100%;
+  height: 100%;
+}
+
+a img {
+  border: none;
+}
+
+.clearfix {
+  zoom: 1;
+}
+
+.clearfix:after {
+  content: "";
+  visibility: hidden;
+  display: block;
+  clear: both;
+  height: 0;
+  font-size: 0;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.fs28 {
+  font-size: 0.28rem;
+}
+
+.fs32 {
+  font-size: 0.32rem;
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+/**下载条默认样式 ——（default）***********************************************************************************/
+/**
+ * 当前css文档，单位是rem，计算：100px/100 = 1rem
+ */
+.currency-download-default .appdownload-wrapper {
+  position: fixed;
+  bottom: 0;
+  z-index: 10000;
+  left: 0;
+  width: 100%;
+  height: 1.2rem;
+  background: url(../img/icon-download-bg.png) repeat-x;
+}
+
+.currency-download-default .appdownload-logo {
+  width: 0.8rem;
+  height: 0.8rem;
+  margin: 0.2rem 0 0 0.3rem;
+}
+
+.currency-download-default .appdownload-title {
+  margin: 0.2rem 0 0 0.2rem;
+}
+
+.currency-download-default .appdownload-title .t1 {
+  color: #fff;
+}
+
+.currency-download-default .appdownload-title .t2 {
+  color: #a8a8a8;
+}
+
+.currency-download-default .appdownload-btn {
+  width: 2.06rem;
+  color: #ffa200;
+  display: block;
+  border: 1px solid #ffa200;
+  height: 0.56rem;
+  line-height: 0.56rem;
+  margin: 0.3rem 0.3rem 0 0;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  text-align: center;
+}
+
+.currency-download-default .wrapper {
+  position: fixed;
+  background: rgba(0, 0, 0, 0.6);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.currency-download-default .wrapper .sure {
+  position: relative;
+  height: 6rem;
+}
+
+.currency-download-default .wrapper .sure {
+  color: #fff;
+}
+
+.currency-download-default .wrapper .sure p {
+  padding-left: 15%;
+  position: relative;
+}
+
+.currency-download-default .wrapper .sure .chose {
+  font-size: 0.40rem;
+}
+
+.currency-download-default .wrapper .sure .chose .point div:nth-of-type(1) {
+  width: 60%;
+  position: Relative;
+}
+
+.currency-download-default .wrapper .sure .chose .point div {
+  float: left;
+  height: 5rem;
+}
+
+.currency-download-default .wrapper .point .show span {
+  position: absolute;
+  bottom: 0;
+  display: block;
+  width: 100%;
+  padding-left: 25%;
+}
+
+.currency-download-default .wrapper .sure .chose .point .show span .right-corner {
+  color: #ffa200;
+}
+
+.currency-download-default .wrapper .sure .chose .point .show span .bypass {
+  font-size: 12px;
+  position: Relative;
+  top: 3px;
+}
+
+.currency-download-default .wrapper .sure p span,
+.currency-download-default .wrapper .sure .chose .point .show span span {
+  color: #ffa200;
+}
+
+.currency-download-default .wrapper .point .show span i {
+  display: inline-block;
+  vertical-align: sub;
+}
+
+.currency-download-default .wrapper .sure .chose .point div:nth-of-type(2) {
+  width: 40%;
+  background: url(../img/f.png) -5% 71% no-repeat;
+  background-size: 100px 91%;
+}
+
+.currency-download-default .wrapper .sure p {
+  padding-left: 15%;
+  position: relative;
+  /*text-align: center;*/
+}
+
+.currency-download-default .wrapper .sure p span,
+.currency-download-default .wrapper .sure .chose .point .show span span,
+.currency-download-default .wrapper .sure .chose .point .show span a {
+  color: #ffa200;
+}
+
+/**end 下载条默认样式***********************************************************************************/
+
+/**下载条样式 ——（app_px）***********************************************************************************/
+/**
+ * 当前css文档，单位是px
+ */
+.currency-download-default-px {
+  width: 100%;
+  height: auto;
+}
+
+.currency-download-default-px section {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 99999999;
+  cursor: pointer;
+}
+
+.currency-download-default-px section .wrap {
+  width: 85%;
+  height: 100%;
+  margin: 0 auto;
+  color: #FFFFFF;
+  font-size: 18px;
+  position: relative;
+}
+
+.currency-download-default-px section .wrap::after {
+  clear: both;
+  content: ' ';
+  display: block;
+  width: 0;
+  height: 0;
+  visibility: hidden;
+}
+
+.currency-download-default-px section .wrap .box {
+  position: absolute;
+  top: 8px;
+  right: 0;
+  width: 85%;
+}
+
+.currency-download-default-px section .wrap span {
+  color: #ffa200;
+}
+
+.currency-download-default-px section .wrap .txt-top {
+  position: relative;
+  zoom: 1;
+  _zoom: 1;
+  margin-bottom: 2%;
+}
+
+.currency-download-default-px section .wrap .txt-top::after {
+  clear: both;
+  content: ' ';
+  display: block;
+  width: 0;
+  height: 0;
+  visibility: hidden;
+}
+
+.currency-download-default-px section .wrap .txt-top .txt {
+  position: absolute;
+  bottom: 0;
+}
+
+.currency-download-default-px section .wrap .txt-top i {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #FFF;
+  display: inline-block;
+  margin-left: 3px;
+}
+
+.currency-download-default-px section .wrap .txt-top .txt-png {
+  background: url(../img/f.png) no-repeat;
+  width: 50%;
+  float: right;
+  background-size: 100%;
+  padding-bottom: 83%;
+}
+
+.currency-download-default-px footer {
+  width: 100%;
+  position: fixed;
+  background: gradient(linear, 0% 0%, 0% 100%, from(#2f2e2c), to(#1e1e1d));
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#2f2e2c), to(#1e1e1d));
+  bottom: 0;
+  color: #fff;
+  height: 55px;
+}
+
+.currency-download-default-px footer .wrap {
+  position: relative;
+  width: 90%;
+  padding-top: 10px;
+  margin: 0 auto;
+  zoom: 1;
+  _zoom: 1;
+  line-height: 20px;
+  font-size: 14px;
+}
+
+.currency-download-default-px footer .wrap::after {
+  clear: both;
+  content: ' ';
+  display: block;
+  width: 0;
+  height: 0;
+  visibility: hidden;
+}
+
+.currency-download-default-px footer .wrap .footer-left,
+.currency-download-default-px footer .wrap .footer-rigth {
+  box-sizing: border-box;
+}
+
+.currency-download-default-px .footer-left {
+  width: 63%;
+}
+
+.currency-download-default-px .footer-left img {
+  width: 38px;
+  height: 38px;
+  float: left;
+}
+
+.currency-download-default-px .footer-left .web-title {
+  width: 78%;
+}
+
+.currency-download-default-px .footer-left .web-title p:first-child {
+  font-size: 16px;
+}
+
+.currency-download-default-px .footer-left .web-title p:last-child {
+  color: #a8a8a8;
+}
+
+.currency-download-default-px .footer-rigth {
+  width: 36%;
+  display: box;
+  display: -webkit-box;
+  -webkit-box-pack: end;
+  -webkit-box-align: center;
+  padding: 1% 0;
+}
+
+.currency-download-default-px .footer-rigth .web-btn {
+  display: block;
+  border: 1px solid #ffa200;
+  color: #ffa200;
+  padding: 0 5%;
+  border-radius: 5px;
+  height: 30px;
+  line-height: 30px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.currency-download-default-px .footer-rigth a.web-btn:active {
+  color: #ffa200 !important;
+}
+
+.currency-download-default-px .footer-rigth a.web-btn:hover {
+  color: #ffa200 !important;
+}
+
+.currency-download-default-px .footer-rigth a.web-btn:visited {
+  color: #ffa200 !important;
+}
+
+.currency-download-default-px .footer-rigth a.web-btn:link {
+  color: #ffa200 !important;
+}
+
+@media screen and (max-width: 321px) {
+  .currency-download-default-px .footer-left .web-title {
+    width: 75%;
+  }
+
+  .currency-download-default-px .footer-left img {
+    width: 20%;
+    vertical-align: middle;
+  }
+
+  .currency-download-default-px .footer-left .footer-left .web-title {
+    width: 76%;
+  }
+
+  .currency-download-default-px section .wrap {
+    font-size: 15px;
+  }
+}
+
+@media screen and (min-width: 640px) {
+  .currency-download-default-px footer {
+    overflow: hidden;
+  }
+
+  .currency-download-default-px footer .wrap {
+    margin: 0 auto;
+    max-width: 600px !important;
+  }
+
+  .currency-download-default-px footer .wrap .footer-left img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .currency-download-default-px footer .wrap .footer-left .web-title {
+    width: 86%;
+  }
+
+  .currency-download-default-px footer .wrap .footer-rigth {
+    padding: 3px 0;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .currency-download-default-px .footer-left .web-title {
+    width: 86%;
+  }
+}
+
+/**end 下载条默认样式***********************************************************************************/

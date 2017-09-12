@@ -1,0 +1,247 @@
+/**下载条默认样式 ——（default）**********************************************************************************
+/**
+ * 当前css文档，单位是rem，计算：100px/100 = 1rem
+
+.currency-download-default
+  .appdownload-wrapper
+    position: fixed
+    bottom: 0
+    z-index: 10000
+    left: 0
+    width: 100%
+    height: 1.2rem
+    background: url(../img/icon-download-bg.png) repeat-x
+  .appdownload-logo
+    width: 0.8rem
+    height: 0.8rem
+    margin: 0.2rem 0 0 0.3rem
+  .appdownload-title
+    margin: 0.2rem 0 0 0.2rem
+    .t1
+      color: #fff
+    .t2
+      color: #a8a8a8
+  .appdownload-btn
+    width: 2.06rem
+    color: #ffa200
+    display: block
+    border: 1px solid #ffa200
+    height: 0.56rem
+    line-height: 0.56rem
+    margin: 0.3rem 0.3rem 0 0
+    border-radius: 5px
+    -webkit-border-radius: 5px
+    text-align: center
+  .wrapper
+    position: fixed
+    background: rgba(0, 0, 0, 0.6)
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    .sure
+      position: relative
+      height: 6rem
+      color: #fff
+      p
+        padding-left: 15%
+        position: relative
+      .chose
+        font-size: 0.40rem
+        .point div
+          &:nth-of-type(1)
+            width: 60%
+            position: Relative
+          float: left
+          height: 5rem
+    .point .show span
+      position: absolute
+      bottom: 0
+      display: block
+      width: 100%
+      padding-left: 25%
+    .sure
+      .chose .point .show span
+        .right-corner
+          color: #ffa200
+        .bypass
+          font-size: 12px
+          position: Relative
+          top: 3px
+      p span, .chose .point .show span span
+        color: #ffa200
+    .point .show span i
+      display: inline-block
+      vertical-align: sub
+    .sure
+      .chose .point div:nth-of-type(2)
+        width: 40%
+        background: url(../img/f.png) -5% 71% no-repeat
+        background-size: 100px 91%
+      p
+        padding-left: 15%
+        position: relative
+        /*text-align: center;
+        span
+          color: #ffa200
+      .chose .point .show span
+        span, a
+          color: #ffa200
+
+/**end 下载条默认样式**********************************************************************************
+
+/**下载条样式 ——（app_px）**********************************************************************************
+/**
+ * 当前css文档，单位是px
+
+.currency-download-default-px
+  width: 100%
+  height: 100%
+  section
+    width: 100%
+    height: 100%
+    position: fixed
+    top: 0
+    left: 0
+    background: rgba(0, 0, 0, 0.8)
+    z-index: 99999999
+    cursor: pointer
+    .wrap
+      width: 85%
+      height: 100%
+      margin: 0 auto
+      color: #FFFFFF
+      font-size: 18px
+      position: relative
+      &::after
+        clear: both
+        content: ' '
+        display: block
+        width: 0
+        height: 0
+        visibility: hidden
+      .box
+        position: absolute
+        top: 8px
+        right: 0
+        width: 85%
+      span
+        color: #ffa200
+      .txt-top
+        position: relative
+        zoom: 1
+        _zoom: 1
+        margin-bottom: 2%
+        &::after
+          clear: both
+          content: ' '
+          display: block
+          width: 0
+          height: 0
+          visibility: hidden
+        .txt
+          position: absolute
+          bottom: 0
+        i
+          width: 5px
+          height: 5px
+          border-radius: 50%
+          background: #FFF
+          display: inline-block
+          margin-left: 3px
+        .txt-png
+          background: url(../img/f.png) no-repeat
+          width: 50%
+          float: right
+          background-size: 100%
+          padding-bottom: 83%
+  footer
+    width: 100%
+    position: fixed
+    background: gradient(linear, 0% 0%, 0% 100%, from(#2f2e2c), to(#1e1e1d))
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#2f2e2c), to(#1e1e1d))
+    bottom: 0
+    color: #fff
+    height: 55px
+    .wrap
+      position: relative
+      width: 90%
+      padding-top: 10px
+      margin: 0 auto
+      zoom: 1
+      _zoom: 1
+      line-height: 20px
+      font-size: 14px
+      &::after
+        clear: both
+        content: ' '
+        display: block
+        width: 0
+        height: 0
+        visibility: hidden
+      .footer-left, .footer-rigth
+        box-sizing: border-box
+  .footer-left
+    width: 63%
+    img
+      width: 38px
+      height: 38px
+      float: left
+    .web-title
+      width: 78%
+      p
+        &:first-child
+          font-size: 16px
+        &:last-child
+          color: #a8a8a8
+  .footer-rigth
+    width: 36%
+    display: box
+    display: -webkit-box
+    -webkit-box-pack: end
+    -webkit-box-align: center
+    padding: 1% 0
+    .web-btn
+      display: block
+      border: 1px solid #ffa200
+      color: #ffa200
+      padding: 0 5%
+      border-radius: 5px
+      height: 30px
+      line-height: 30px
+      cursor: pointer
+      text-decoration: none
+
+@media screen and (max-width: 321px)
+  .currency-download-default-px
+    .footer-left
+      .web-title
+        width: 75%
+      img
+        width: 20%
+        vertical-align: middle
+      .footer-left .web-title
+        width: 76%
+    section .wrap
+      font-size: 15px
+
+@media screen and (min-width: 640px)
+  .currency-download-default-px footer
+    overflow: hidden
+    .wrap
+      margin: 0 auto
+      max-width: 600px !important
+      .footer-left
+        img
+          width: 40px
+          height: 40px
+        .web-title
+          width: 86%
+      .footer-rigth
+        padding: 3px 0
+
+@media screen and (min-width: 600px)
+  .currency-download-default-px .footer-left .web-title
+    width: 86%
+
+/**end 下载条默认样式**********************************************************************************

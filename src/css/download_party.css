@@ -1,0 +1,44 @@
+* {
+  margin: 0;
+  padding: 0;
+  border-width: 0;
+  list-style: none;
+  background-repeat: no-repeat;
+  font-family: "Microsoft yahei";
+}
+img {
+  width: 100%;
+  height: 100%;
+}
+a img{border:none;}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+
+/**下载条样式 ——（app_px）***********************************************************************************/
+/**
+ * 当前css文档，单位是px
+ */
+.currency-download-party-default-px{width: 100%;height: auto;}
+.currency-download-party-default-px .download-app-px { width: 100%; height: 100%; position: fixed;top:0;left: 0; background: rgba(0, 0, 0, 0.8); z-index: 99999999; cursor: pointer; }
+.currency-download-party-default-px .download-app-px .wrap { width: 85%;height: 100%;  margin: 0 auto; color: #FFFFFF; font-size: 18px; position: relative; }
+.currency-download-party-default-px .download-app-px .wrap::after { clear: both; content: ' '; display: block; width: 0; height: 0; visibility: hidden; }
+.currency-download-party-default-px .download-app-px .wrap .box { position: absolute; top: 8px; right: 0; width: 85%;}
+.currency-download-party-default-px .download-app-px .wrap span { color: #ffa200; }
+.currency-download-party-default-px .download-app-px .wrap .txt-top { position: relative; zoom: 1; _zoom: 1; margin-bottom: 2%; }
+.currency-download-party-default-px .download-app-px .wrap .txt-top::after { clear: both; content: ' '; display: block; width: 0; height: 0; visibility: hidden; }
+.currency-download-party-default-px .download-app-px .wrap .txt-top .txt { position: absolute; bottom: 0; }
+.currency-download-party-default-px .download-app-px .wrap .txt-top i { width: 5px; height: 5px; border-radius: 50%; background: #FFF; display: inline-block; margin-left: 3px;}
+.currency-download-party-default-px .download-app-px .wrap .txt-top .txt-png{background: url(../img/f.png) no-repeat;width: 50%;float: right; background-size: 100%; padding-bottom: 83%; }
+
+
+@media screen and (max-width: 321px) {
+  .currency-download-party-default-px .download-app-px .wrap { font-size: 15px; } }
+
+/**end 下载条默认样式***********************************************************************************/
